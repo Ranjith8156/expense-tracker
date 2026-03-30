@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Expense Tracker — Add Expense</title>
+    <meta name="description" content="Track your expenses and salary with a beautiful animated dashboard" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="expense.css" />
+</head>
+<body class="expense-page">
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-gradient expense-bg"></div>
+    <!-- Main Content -->
+    <div class="container fade-slide-in">
+        <h1 class="neon-title">
+            <span class="emoji">💰</span>
+            Smart Expense Tracker
+        </h1>
+        <p class="subtitle">Track your spending, master your money</p>
+
+        <div class="glass-card">
+            <!-- Expense Form -->
+            <div class="form-section">
+                <h2 class="section-title">Add New Expense</h2>
+                <div class="input-group">
+                    <label for="amount">Amount (₹)</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💵</span>
+                        <input type="number" id="amount" placeholder="Enter amount" step="0.01" min="0" />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="category">Category</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🏷️</span>
+                        <input type="text" id="category" placeholder="e.g. Food, Transport, Shopping" />
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="addExpenseBtn" onclick="addExpense()">
+                    <span class="btn-text">Add Expense</span>
+                    <span class="btn-icon">➕</span>
+                </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Salary Section -->
+            <div class="form-section">
+                <h2 class="section-title">Monthly Salary</h2>
+                <div class="input-group">
+                    <label for="salary">Salary Amount (₹)</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💰</span>
+                        <input type="number" id="salary" placeholder="Enter monthly salary" step="0.01" min="0" />
+                    </div>
+                </div>
+                <button class="btn btn-success" id="saveSalaryBtn" onclick="saveSalary()">
+                    <span class="btn-text">Save Salary</span>
+                    <span class="btn-icon">💾</span>
+                </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Navigation -->
+            <div class="nav-section">
+                <button class="btn btn-dashboard" onclick="goToDashboard()">
+                    <span class="btn-text">View Dashboard</span>
+                    <span class="btn-icon">📊</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Toast -->
+        <div class="toast" id="toast">
+            <span class="toast-icon">✅</span>
+            <span class="toast-message" id="toastMessage">Success!</span>
+        </div>
+    </div>
+
+    <script src="expense.js"></script>
+</body>
+</html>
